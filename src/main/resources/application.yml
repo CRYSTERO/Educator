@@ -1,0 +1,13 @@
+spring:
+  data:
+    mongodb:
+      database: Educator
+      port: 27017
+      host: localhost
+  mail:
+    host: smtp.office365.com
+    username: longchen2134@outlook.com
+    password: Dongdong2018
+logging:
+  file:
+    name: EducatorLog.log

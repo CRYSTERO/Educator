@@ -1,0 +1,120 @@
+/*!Fonts*/
+@font-face
+{
+    font-family: LanTingZhunHei;
+    src: url("../fonts/LanTingZhunHei.TTF");
+}
+@font-face
+{
+    font-family: HangKai;
+    src: url("../fonts/HangKai.TTF");
+}
+.m-text-thick
+{
+    font-family: LanTingZhunHei !important;
+    font-size: 50px !important;
+    font-weight: 500 !important;
+    text-align: center !important;
+}
+.m-text-artistic
+{
+    font-family: HangKai !important;
+    font-size: 50px !important;
+    font-weight: 500 !important;
+    text-align: center !important;
+}
+.m-text-big
+{
+    font-family: LanTingZhunHei !important;
+    font-size: 35px;
+    font-weight: 500 !important;
+    text-align: center !important;
+}
+.m-text-middle
+{
+    font-family: LanTingZhunHei !important;
+    font-size: 20px !important;
+    font-weight: 500 !important;
+    text-align: center !important;
+}
+.m-text-small
+{
+    font-family: LanTingZhunHei !important;
+    font-size: 20px !important;
+    font-weight: 100 !important;
+    text-align: center !important;
+}
+.m-text-mini
+{
+    font-family: LanTingZhunHei !important;
+    font-size: 15px !important;
+    font-weight: 100 !important;
+}
+
+
+
+/*pad*/
+.m-padded-tb-mini
+{
+    padding-top: 0.2em !important;
+    padding-bottom: 0.2em !important;
+}
+.m-padded-tb-tiny
+{
+    padding-top: 0.3em !important;
+    padding-bottom: 0.3em !important;
+}
+.m-padded-tb-small
+{
+    padding-top: 0.5em !important;
+    padding-bottom: 0.5em !important;
+}
+.m-padded-tb
+{
+    padding-top: 1em !important;
+    padding-bottom: 1em !important;
+}
+.m-padded-tb-large
+{
+    padding-top: 2em !important;
+    padding-bottom: 2em !important;
+}
+.m-padded-tb-big
+{
+    padding-top: 3em !important;
+    padding-bottom: 3em !important;
+}
+.m-padded-tb-huge
+{
+    padding-top: 4em !important;
+    padding-bottom: 4em !important;
+}
+
+.m-padded-tb-massive
+{
+    padding-top: 5em !important;
+    padding-bottom: 5em !important;
+}
+
+/*container!*/
+.m-container
+{
+    max-width: 80em !important;
+    margin: auto !important;
+}
+.m-container-medium
+{
+    max-width: 70em !important;
+    margin: auto !important;
+}
+.m-container-small
+{
+    max-width: 60em !important;
+    margin: auto !important;
+}
+
+/*block!*/
+.m-inline-block
+{
+    display: inline-block !important;
+}

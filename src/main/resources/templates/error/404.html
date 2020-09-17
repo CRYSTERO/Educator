@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/semantic/semantic.min.css">
+    <style>
+        body
+        {
+            background: url("/asserts/image/404.png");
+            background-repeat: no-repeat;
+            background-size: auto;
+            background-attachment: fixed;
+        }
+    </style>
+    <title>404你的页面不见了</title>
+</head>
+<body>
+<!--    <div class=" m-container-small m-padded-tb-massive">-->
+<!--        <div class="ui container">-->
+<!--            <div class="ui middle aligned center aligned grid  m-padded-tb-massive">-->
+<!--                <div class="ten wide column">-->
+<!--                </div>-->
+<!--                <-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+    <a class="ui blue large button" style="position: fixed;top: 20em;left: 60em" th:href="@{/}">
+        去主页</a>
+</body>
+</html>

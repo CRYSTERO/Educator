@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="/semantic/semantic.min.css">
+	<link rel="stylesheet" type="text/css" href="/asserts/css/myStyle.css">
+	<style>
+		body
+		{
+			background-color: #F7EED6;
+		}
+	</style>
+	<title>学籍信息</title>
+</head>
+<body>
+<div th:replace="~{common/commons :: navigation_stu}"></div>
+
+<div class="m-container-medium m-padded-tb-massive">
+	<div class="ui container">
+			<div class="ui stackable grid">
+				<div class="ui top attached segment">
+					<div class="ui  middle aligned two column grid">
+						<div class="left aligned column">
+							<h2 class="ui header">我的学籍信息</h2>
+						</div>
+					</div>
+				</div>
+				<div class="ui attached segment">
+					<form class="ui form" th:object="${session.student}">
+					<div class="ui padded vertical segment m-padded-tb-large">
+                        <h4 class="ui dividing grey header">基本身份信息</h4>
+						<div class="ui stackable grid mobile reversed">
+							<div class="twelve wide column">
+								<div class="ui padded vertical segment m-padded-tb-mini">
+									<div class="field">
+										<label>姓名</label>
+										<div class="two fields">
+											<div class="field">
+												<input type="text" name="family-name" th:value="*{personalInfo.getFamilyName()}" readonly/>
+											</div>
+											<div class="field">
+												<input type="text" name="given-name" th:value="*{personalInfo.getGivenName()}" readonly>
+											</div>
+										</div>
+									</div>
+									<div class="two fields">
+										<div class="field">
+											<label>性别</label>
+											<select class="ui fluid disabled dropdown" th:value="*{personalInfo.getGender()}">
+												<option value="MALE">男</option>
+												<option value="FEMALE">女</option>
+											</select>
+										</div>
+										<div class="field">
+											<label>年龄</label>
+											<input type="text" name="age" th:value="*{personalInfo.getAge()}" readonly>
+
+										</div>
+									</div>
+									<div class="field">
+										<label>证件号码</label>
+										<div class="ui labeled input">
+											<div class="ui label">
+												<div class="text" th:value="*{personalInfo.getCertificate().getCertificateClass()}">中华人民共和国居民身份证</div>
+											</div>
+											<input type="text" th:value="*{personalInfo.getCertificate().getCertificateId()}" READONLY/>
+										</div>
+									</div>
+									<div class="field">
+										<label>籍贯</label>
+										<input type="text" name="hometown" th:value="*{personalInfo.getBirthPlace()}" readonly>
+									</div>
+								</div>
+							</div>
+							<div class="four wide center aligned column">
+								<img src="" th:src="@{${session.student.getPersonalInfo().getPhoto()}}" class="ui image"
+								style="width: 200px !important;">
+
+							</div>
+						</div>
+					</div>
+					<div class="ui padded vertical segment m-padded-tb-large">
+                        <h4 class="ui dividing grey header">学籍信息</h4>
+                        <div class="three fields">
+                                <div class="field">
+                                    <label>学号</label>
+                                    <input type="text" name="uni" th:value="*{educationalInfo.getId()}" readonly>
+                                </div>
+                                <div class="field">
+                                    <label>院系</label>
+                                    <input type="text" name="school" th:value="*{educationalInfo.getSchool()}" readonly>
+                                </div>
+                                <div class="ui field">
+                                    <label>行政班级</label>
+                                    <input type="text" name="class" th:value="*{educationalInfo.getAdminClass()}" readonly>
+                                </div>
+                            </div>
+                        <div class="two fields">
+                            <div class="field">
+                                <label>入学时间</label>
+                                <input type="text" th:value="*{#dates.format(educationalInfo.getEnrollDate(),'yyyy-MM-dd')}" readonly>
+                            </div>
+                            <div class="field">
+                                <label>预计结业时间</label>
+                                <input type="text" th:value="*{#dates.format(educationalInfo.getGraduateDate(),'yyyy-MM-dd')}" readonly>
+                            </div>
+                        </div>
+						<div class="two fields">
+							<div class="field">
+								<label>电子邮箱地址</label>
+								<input type="text" th:value="*{educationalInfo.email}" readonly>
+							</div>
+							<div class="field">
+								<label>联系电话</label>
+								<input type="text" th:value="*{educationalInfo.tel}" readonly>
+							</div>
+						</div>
+                        <div class="field">
+                            <label>
+                                备注
+                                <textarea th:text="*{educationalInfo.getRemark()}" readonly></textarea>
+                            </label>
+                        </div>
+					</div>
+					</form>
+				</div>
+				<div class="ui bottom attached segment">
+					<div class="ui middle aligned two column grid">
+						<div class="column">
+							<span class="m-text-mini" style="color: #9f3a38!important;">
+								如果右侧的"修改"按钮为灰色，说明你当前没有权限修改学籍信息。
+								如有疑问，请及时联系教务处或管理员。
+							</span>
+						</div>
+						<div class="ui right aligned column">
+							<a href="#" class="ui large green button" th:href="@{/stu/info-edit}">修改</a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+	</div>
+</div>
+
+<div th:replace="~{common/commons :: footer}"></div>
+<script src="/asserts/js/jquery-3.4.1.min.js"></script>
+<script src="/semantic/semantic.min.js"></script>
+
+<script>
+	$('.ui.dropdown').dropdown(
+			{on : 'hover'}
+	);
+</script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="/semantic/semantic.min.css">
+	<link rel="stylesheet" type="text/css" href="/asserts/css/myStyle.css">
+	<style>
+		body
+		{
+			background-color: #F7EED6;
+		}
+	</style>
+	<title>学籍信息修改</title>
+</head>
+<body>
+<div th:replace="~{common/commons :: navigation_stu}"></div>
+
+<div class="m-container-medium m-padded-tb-massive">
+	<div class="ui container">
+		<div class="ui stackable grid">
+			<div class="ui top attached segment">
+				<div class="ui  middle aligned two column grid">
+					<div class="left aligned column">
+						<h2 class="ui header">我的学籍信息</h2>
+					</div>
+				</div>
+			</div>
+			<div class="ui attached segment">
+				<form class="ui form">
+				<div class="ui padded vertical segment m-padded-tb-large">
+					<h4 class="ui dividing grey header">基本身份信息</h4>
+						<div class="ui stackable grid mobile reversed">
+							<div class="twelve wide column">
+								<div class="ui padded vertical segment m-padded-tb-mini">
+									<div class="field">
+										<label>姓名</label>
+										<div class="two fields">
+											<div class="field">
+												<input type="text" name="first_name" value="李"/>
+											</div>
+											<div class="field">
+												<input type="text" name="first_name" value="旭东"/>
+											</div>
+										</div>
+									</div>
+									<div class="two fields">
+										<div class="field">
+											<label>性别</label>
+											<select class="ui fluid dropdown">
+												<option value="male">男</option>
+												<option value="female">女</option>
+											</select>
+										</div>
+										<div class="field">
+											<label>年龄</label>
+											<input type="text" name="age" value="20">
+
+										</div>
+									</div>
+									<div class="field">
+										<label>证件号码</label>
+										<div class="ui left labeled input">
+											<div class="ui dropdown label">
+												<div class="text">中华人民共和国居民身份证</div>
+												<i class="dropdown icon"></i>
+												<div class="menu">
+													<div class="item">中华人民共和国居民身份证</div>
+													<div class="item">香港/澳门特别行政区身份证</div>
+													<div class="item">外国人永久居留证</div>
+													<div class="item">护照</div>
+												</div>
+
+											</div>
+											<input type="text" value="123456">
+										</div>
+									</div>
+									<div class="field">
+										<label>籍贯</label>
+										<input type="text" name="hometown" value="安徽省巢湖市">
+									</div>
+								</div>
+							</div>
+							<div class="four wide center aligned column">
+								<img src="/asserts/image/avatar.jpg" class="ui image"
+								style="width: 200px !important;">
+								<br>
+								<button class="ui tiny green button">上传新照片</button>
+								<i class="ui info circle icon"></i>
+							</div>
+						</div>
+				</div>
+				<div class="ui padded vertical segment m-padded-tb-large">
+						<h4 class="ui dividing grey header">学籍信息</h4>
+						<div class="three fields">
+							<div class="field">
+								<label>学号</label>
+								<input type="text" name="uni" value="080218059">
+							</div>
+							<div class="field">
+								<label>院系</label>
+								<input type="text" name="school" value="电子学院(11)">
+							</div>
+							<div class="ui field">
+								<label>行政班级</label>
+								<input type="text" name="class" value="2018级电子2班">
+							</div>
+						</div>
+						<div class="two fields">
+							<div class="field">
+								<label>入学时间</label>
+								<input type="text" name="enroll_date" value="2018-9-7">
+							</div>
+							<div class="field">
+								<label>预计结业时间</label>
+								<input type="text" name="grad_date" value="2022-6-10">
+							</div>
+						</div>
+						<div class="field">
+							<label>
+								备注
+								<textarea></textarea>
+							</label>
+						</div>
+
+					</div>
+				</form>
+			</div>
+			<div class="ui bottom attached segment">
+				<div class="ui middle aligned two column grid">
+					<div class="column"> </div>
+					<div class="ui right aligned column">
+						<a href="#" class="ui large button" onclick="window.history.go(-1)">取消</a>
+						<a href="#" class="ui large green button">修改</a>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+</div>
+
+
+<div th:replace="~{common/commons :: footer}"></div>
+<script src="/asserts/js/jquery-3.4.1.min.js"></script>
+<script src="/semantic/semantic.min.js"></script>
+<script>
+	$('.ui.dropdown').dropdown(
+		{on : 'hover'}
+		);
+	</script>
+</body>
+</html>

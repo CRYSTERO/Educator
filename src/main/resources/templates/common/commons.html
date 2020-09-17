@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/semantic/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="/asserts/css/myStyle.css">
+    <title>Title</title>
+</head>
+<body>
+    <!--学生端后台导航栏！-->
+     <nav class="ui inverted attached segment m-padded-tb-mini" th:fragment="navigation_stu">
+    <div class="ui container">
+        <div class="ui inverted stackable menu">
+            <div class="m-text-middle center aligned header item" style="color: teal !important;" th:href="@{/student}">学生大本营</div>
+            <a href="#" class="item" th:href="@{/stu/info}">学籍信息</a>
+            <div class="ui dropdown item">
+                课程管理<i class="dropdown icon"></i>
+                <div class="menu">
+                    <a class="item" href="#">我的课程表</a>
+                    <a class="item" href="#">网上选课</a>
+                    <a class="item" href="#">培养计划</a>
+                </div>
+            </div>
+            <div class="ui dropdown item">
+                学习管理<i class="dropdown icon"></i>
+                <div class="menu">
+                    <a class="item" href="#">期末考试成绩查询</a>
+                    <a class="item" href="#">补考缓考入口</a>
+                    <a class="item" href="#">等级考试报名</a>
+                    <a class="item" href="#">等级考试成绩查询</a>
+                </div>
+            </div>
+            <a href="#" class="item">评教系统</a>
+            <div class="ui dropdown item">
+                我的天地<i class="dropdown icon"></i>
+                <div class="menu">
+                    <a class="item" href="#">日记本</a>
+                    <a class="item" href="#">照片墙</a>
+                    <div class="header">更多功能等待上线...</div>
+                </div>
+            </div>
+            <div class="ui right dropdown item">
+                <img th:src="@{${session.student.getPersonalInfo().getPhoto()}}" class="ui avatar image">
+                <span th:text="${session.student.getPersonalInfo().getFamilyName()+session.student.getPersonalInfo().getGivenName()}">XXX</span>
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                    <a href="#" th:href="@{/logout}" class="item">退出登录</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <!--教师端后台导航栏！-->
+
+    <!--页脚！-->
+    <footer class="ui inverted vertical segment m-padded-tb-massive" th:fragment="footer">
+        <div class="ui center aligned container">
+            <div class="ui inverted divided stackable grid">
+                <div class="center aligned row">
+                    <h3 class="ui inverted header">安庆师范大学教务管理系统 v1.0</h3>
+                </div>
+                <div class="center aligned row">
+                    <p>Looong Network出品。本网站仅供本校师生进行教务管理使用，请勿用作商业用途！安庆师范大学保留一切解释权。皖公安网备2020年8月。</p>
+                </div>
+                <div class="center aligned row">
+                    <div class="three wide column"> <a href="#">联系管理员</a> </div>
+                    <div class="three wide column"> <a href="#">隐私政策</a> </div>
+                    <div class="three wide column"> <a href="#">留言板</a> </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/asserts/js/jquery-3.4.1.min.js"></script>
+    <script src="/semantic/semantic.min.js"></script>
+    <script>
+        $('.ui.dropdown').dropdown(
+            {on : 'hover'}
+        );
+    </script>
+</body>
+</html>

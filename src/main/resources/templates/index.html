@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>欢迎使用教务管理系统！</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/semantic/semantic.min.css">
+	<link rel="stylesheet" type="text/css" href="/asserts/css/myStyle.css">
+	<link rel="stylesheet" type="text/css" href="/asserts/css/body.css">
+</head>
+<body>
+<div class="ui inverted masthead center aligned segment" style="opacity: 30% !important;">
+    <div class="ui container">
+        <div class="ui large secondary inverted pointing menu">
+            <label class="ui header m-text-artistic" style="color: white !important;">安庆师范大学</label>
+            				<label class="ui header m-text-middle" style="color: white !important;">教务管理系统</label>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                <a href="http://mail.aqnu.edu.cn/" class="active item m-text-small" style="color: white !important;"><i class="envelope icon"></i>教育邮箱</a>
+            &nbsp;
+                <a href="https://www.aqnu.edu.cn/" class=" item m-text-small" style="color: white !important;"><i class="external alternate icon"></i>学校官网</a>
+            &nbsp;
+               <a href="#" class=" item m-text-small"><i class="bullhorn icon" style="color: white !important;"></i>公告</a>
+        </div>
+    </div>
+</div>
+	<div class="m-container-small m-padded-tb-massive" style="max-width: 110em !important;max-height: 40em !important">
+		<div class="ui container">
+			<div class="ui middle aligned center aligned grid  m-padded-tb-massive">
+
+					<div class="ten wide column">
+                    </div>
+                    <div class="six wide column">
+						<form class="ui large form" method="post" th:action="@{/login}">
+							<div class="ui stacked segment">
+								<div class="field">
+									<h2 class="ui image header">
+										<img src="/asserts/image/favicon.jpg" class="rounded image">
+										<div class="content"> 请登录！</div>
+									</h2>
+								</div>
+								<div class="inline fields">
+									<label class="m-text-mini" style="color: dimgray !important;">您的身份是：</label>
+									<div class="field">
+										<div class="ui radio checkbox">
+											<input id="student" type="radio" name="identity" checked="checked" class="hidden" value="1">
+											<label>学生</label>
+										</div>
+									</div>
+									<div class="field">
+										<div class="ui radio checkbox">
+											<input id="faculty" type="radio" name="identity" class="hidden" value="2">
+											<label>老师</label>
+										</div>
+									</div>
+									<div class="field">
+										<div class="ui radio checkbox">
+											<input id="admin" type="radio" name="identity" class="hidden" value="3">
+											<label>管理员</label>
+										</div>
+									</div>
+								</div>
+
+								<div class="field">
+									<div class="ui left icon input">
+										<i class="user icon"></i>
+										<input type="text" name="username" placeholder="用户名">
+									</div>
+								</div>
+								<div class="field">
+									<div class="ui left icon input">
+										<i class="lock icon"></i>
+										<input type="password" name="password" placeholder="密码">
+									</div>
+								</div>
+								<button class="ui fluid large blue button" type="submit">登录</button>
+								<br>
+								<div class="alert alert-success" role="alert" id="alert">
+									<p class="ui mini negative message"  th:text="${message}" th:if="${not #strings.isEmpty(message)}">
+									</p>
+								</div>
+							</div>
+						</form>
+					</div>
+
+			</div>
+		</div>
+	</div>
+
+
+
+	<script src="/asserts/js/jquery-3.4.1.min.js"></script>
+	<script src="/semantic/semantic.min.js"></script>
+	<script>
+		$(".ui.radio.checkbox").checkbox();
+	</script>
+</body>
+</html>
