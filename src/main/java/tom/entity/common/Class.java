@@ -19,15 +19,28 @@ public class Class
     private String className;   //课程名称
     private Faculty teacher;    //教师
     private List<Student> students; //修学此课程的学生名单
+    private String oriGrade;
+    private String perfGrade;
+    private String fiGrade;
 
     public Class(){}
 
-    public String getName()
+    public String getId()
+    {
+        return id;
+    }
+
+    public void setId(String id)
+    {
+        this.id = id;
+    }
+
+    public String getClassName()
     {
         return className;
     }
 
-    public void setName(String className)
+    public void setClassName(String className)
     {
         this.className = className;
     }
@@ -50,5 +63,35 @@ public class Class
     public void setStudents(List<Student> students)
     {
         this.students = students;
+    }
+
+    public String getOriGrade()
+    {
+        return oriGrade;
+    }
+
+    public void setOriGrade(String oriGrade)
+    {
+        this.oriGrade = oriGrade;
+    }
+
+    public String getPerfGrade()
+    {
+        return perfGrade;
+    }
+
+    public void setPerfGrade(String perfGrade)
+    {
+        this.perfGrade = perfGrade;
+    }
+
+    public String getFiGrade()
+    {
+        return fiGrade;
+    }
+
+    public void setFiGrade(String fiGrade)
+    {
+        this.fiGrade = fiGrade;
     }
 }

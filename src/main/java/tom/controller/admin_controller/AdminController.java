@@ -2,14 +2,15 @@ package tom.controller.admin_controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import tom.entity.common.Class;
 import tom.entity.enums.CertificateClass;
 import tom.entity.enums.Gender;
 import tom.entity.student.Student;
+import tom.service.ClassService_Impl;
+import tom.service.FacultyService_Impl;
 import tom.service.StudentService_Impl;
 
 import java.beans.PropertyEditorSupport;
@@ -23,6 +24,10 @@ public class AdminController
 {
     @Autowired
     StudentService_Impl studentService;
+    @Autowired
+    FacultyService_Impl facultyService;
+    @Autowired
+    ClassService_Impl classService;
 
     @GetMapping("/add-stu")
     public String toAddStuPage()
@@ -80,4 +85,18 @@ public class AdminController
         });
     }
 
+    @GetMapping("/add-class")
+    public String toAddClass(Model model)
+    {
+        model.addAttribute("class", new Class());
+        model.addAttribute("faculties", facultyService.getAllFaculties());
+        model.addAttribute("students", studentService.getAllStudents());
+        return "admin/add-class";
+    }
+
+    @PostMapping ("/add-class")
+    public Class addClass(@ModelAttribute Class newClass)
+    {
+        return classService.addClass(newClass);
+    }
 }

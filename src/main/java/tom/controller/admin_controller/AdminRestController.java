@@ -7,6 +7,10 @@ import tom.DAO.SchoolRepository;
 import tom.entity.common.AdminClass;
 import tom.entity.common.Class;
 import tom.entity.common.School;
+import tom.entity.faculty.Faculty;
+import tom.entity.student.Student;
+import tom.service.ClassService_Impl;
+import tom.service.FacultyService_Impl;
 import tom.service.StudentService_Impl;
 
 @RestController
@@ -16,7 +20,9 @@ public class AdminRestController
     @Autowired
     StudentService_Impl studentServiceImpl;
     @Autowired
-    ClassRepository classRepository;
+    FacultyService_Impl facultyServiceImpl;
+    @Autowired
+    ClassService_Impl classServiceImpl;
     @Autowired
     SchoolRepository schoolRepository;
 
@@ -32,12 +38,18 @@ public class AdminRestController
 //        System.out.println(student);
 //        return studentServiceImpl.addStudent(student);
 //    }
-
-    @PostMapping("/add-class")
-    public Class addClass(@RequestBody Class aClass)
+    @PostMapping("/add-stf")
+    public Faculty addFaculty(@RequestBody Faculty faculty)
     {
-        return classRepository.save(aClass);
+        System.out.println(faculty);
+        return facultyServiceImpl.addFaculty(faculty);
     }
+
+//    @PostMapping("/add-class")
+//    public void addClass(@RequestBody Class newClass)
+//    {
+//        classServiceImpl.addClass(newClass);
+//    }
 
     @PostMapping("/addAdminClass")
     public void adminClass(@RequestBody AdminClass adminClass)

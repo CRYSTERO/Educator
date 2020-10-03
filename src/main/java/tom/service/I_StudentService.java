@@ -1,14 +1,16 @@
 package tom.service;
 
-import org.springframework.stereotype.Service;
 import tom.entity.student.Student;
 
-@Service
+import java.util.List;
+
 public interface I_StudentService
 {
     Student checkIdentity(String username, String password);
 
     Student addStudent(Student newStudent);
+
+    List<Student> getAllStudents();
 
     void deleteStudent(String id);
 

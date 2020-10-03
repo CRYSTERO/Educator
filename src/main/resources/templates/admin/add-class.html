@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="/semantic/semantic.min.css">
+	<link rel="stylesheet" type="text/css" href="/asserts/css/myStyle.css">
+	<style>
+		body
+		{
+			background-color: #F7EED6;
+		}
+	</style>
+	<title>添加课程</title>
+</head>
+<body>
+	<div class="m-container-medium m-padded-tb-massive" style=" max-height: 40em !important">
+		<div class="ui container">
+			<div class="ui middle aligned center aligned grid m-padded-tb-massive">
+				<form class="ui form" method="post" id="form" th:action="@{/admin/add-class}">
+					<div class="ui stacked segment m-padded-tb-big">
+						<div class="field">
+							<span class="m-text-big" style="color: #0e8c8c !important;">创建新课程</span>
+						</div>
+						<div class="two fields">
+							<div class="field">
+								<label>课程代码</label>
+								<input type="text" name="id" value="000001" readonly>
+							</div>
+							<div class="field">
+								<label>课程名称</label>
+								<input type="text" name="className">
+							</div>
+						</div>
+						<div class="field">
+							<div class="ui left labeled input">
+								<label class="ui compact basic label">授课教师</label>
+								<div class="ui selection dropdown">
+									<input type="hidden" name="teacher">
+									<i class="dropdown icon"></i>
+									<div class="default text">选择老师</div>
+									<div class="menu">
+										<div th:each="teacher : ${faculties}" class="item" th:data-value="${teacher.id}"
+										th:text="${teacher.getPersonalInfo().getFamilyName()+teacher.getPersonalInfo().getGivenName()}">XXX</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="field">
+							<div class="ui left labeled action input">
+								<label class="ui compact basic label">选择学生</label>
+								<div class="ui fluid selection multiple dropdown">
+									<input type="hidden" name="students">
+									<i class="dropdown icon"></i>
+									<div class="default text">请选择学生</div>
+									<div class="menu">
+										<div th:each="student : ${students}" class="item" th:data-value="${student.id}"
+											 th:text="${student.getPersonalInfo().getFamilyName()+student.getPersonalInfo().getGivenName()}">XXX</div>
+									</div>
+								</div>
+							</div>
+<!--                            <label>选择学生</label>-->
+<!--                            <select name="students" multiple>-->
+<!--                                <option th:each="student : ${students}" th:text="${student.getPersonalInfo().getFamilyName()+student.getPersonalInfo().getGivenName()}">XXX</option>-->
+<!--                            </select>-->
+                        </div>
+						<div class="field">
+							<button class="ui fluid large green button" id="submit-btn">添加</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+
+	<script src="/asserts/js/jquery-3.4.1.min.js"></script>
+    <script src="/semantic/semantic.min.js"></script>
+    <script>
+        $('.ui.dropdown').dropdown(
+            {on : 'hover'}
+        );
+        $('#submit-btn').click(function () {
+            $('#form').submit();
+        });
+    </script>
+	<script>
+	$('.ui.form').form(
+			{
+				fields :
+						{
+							id :
+									{
+										identifier : 'id.'
+									},
+							className:
+									{
+										identifier: 'className'
+									}
+
+
+						}
+			}
+	)
+</script>
+	</body>
+	</html>

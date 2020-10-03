@@ -8,11 +8,12 @@ import java.util.List;
 
 public class Employment_Info
 {
+
     private String id;
     private String school;
     private Date entryDate;
     private JobTitle title;
-    private Class adminClass;
+    private String adminClass;
     private List<Class> TeachingClasses;
     private String email;
     private String tel;
@@ -48,12 +49,12 @@ public class Employment_Info
         this.title = title;
     }
 
-    public Class getAdminClass()
+    public String getAdminClass()
     {
         return adminClass;
     }
 
-    public void setAdminClass(Class adminClass)
+    public void setAdminClass(String adminClass)
     {
         this.adminClass = adminClass;
     }
@@ -86,5 +87,15 @@ public class Employment_Info
     public void setTel(String tel)
     {
         this.tel = tel;
+    }
+
+    public String getId()
+    {
+        return id;
+    }
+
+    public void setId(String id)
+    {
+        this.id = id;
     }
 }

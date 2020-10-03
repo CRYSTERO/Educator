@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import tom.entity.common.User;
+import tom.entity.faculty.Faculty;
 import tom.entity.student.Student;
+import tom.service.FacultyService_Impl;
 import tom.service.StudentService_Impl;
 import tom.util.MD5Utils;
 
@@ -19,6 +21,8 @@ public class LoginController
 {
     @Autowired
     StudentService_Impl studentService;
+    @Autowired
+    FacultyService_Impl facultyService;
 
     @PostMapping("/login")
     public String login(@RequestParam("identity") String identity,
@@ -49,13 +53,31 @@ public class LoginController
             }
             case "2" :
             {
-
+                Faculty faculty = facultyService.checkIdentity(username, password);
+                if(faculty != null)
+                {
+                    System.out.println("登陆成功！！！");
+                    session.setAttribute("faculty", faculty);
+                    return "/faculty/dashboard";
+                }
+                else
+                {
+                    map.put("message","用户名或密码有误！如果您遗忘了密码，请与管理员联系！");
+                    System.out.println("登录失败！！！");
+                    return "index";
+                }
             }
             default:
             {
             }
         }
         return null;
+    }
+
+    @GetMapping("/faculty/dashboard")
+    public String faclog()
+    {
+        return "/faculty/dashboard";
     }
 
     @GetMapping("/logout")

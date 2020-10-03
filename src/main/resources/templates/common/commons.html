@@ -51,7 +51,21 @@
     </div>
 </nav>
     <!--教师端后台导航栏！-->
+    <nav class="ui inverted attached segment m-padded-tb-mini" th:fragment="navigation_stf">
+        <div class="ui container">
+            <div class="ui inverted stackable menu">
+                <div class="m-text-middle center aligned header item" style="color: orangered !important;" th:href="@{/student}">教职工系统</div>
+                <a class="item" href="#">个人信息</a>
+                <a class="item" href="#">考试成绩上传</a>
+                <a class="item" href="#">课程表</a>
 
+                <div class="ui right dropdown item">
+                    <img src="/asserts/image/avatar.jpg" class="ui avatar image">
+                    <span>李旭东</span>
+                </div>
+            </div>
+        </div>
+    </nav>
     <!--页脚！-->
     <footer class="ui inverted vertical segment m-padded-tb-massive" th:fragment="footer">
         <div class="ui center aligned container">

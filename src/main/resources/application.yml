@@ -8,6 +8,3 @@ spring:
     host: smtp.office365.com
     username: longchen2134@outlook.com
     password: Dongdong2018
-logging:
-  file:
-    name: EducatorLog.log

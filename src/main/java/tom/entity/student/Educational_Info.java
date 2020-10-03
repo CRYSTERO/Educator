@@ -8,8 +8,8 @@ import java.util.Date;
 public class Educational_Info
 {
     private String Id;  //学生的学号
-    private String school;  //学生所属的院系
-    private String adminClass;  //学生所属的行政班级
+    private String school;  //学生所属的院系，为了方便这里先用字符串代替，后期用专用的类
+    private String adminClass;  //学生所属的行政班级，为了方便这里先用字符串代替，后期用专用的类
     private Date enrollDate;    //学生的入学日期
     private Date graduateDate;  //学生的预计毕业日期
     private String remark;  //学生的评语

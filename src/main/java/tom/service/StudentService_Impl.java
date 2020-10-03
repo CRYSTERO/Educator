@@ -8,47 +8,54 @@ import tom.entity.student.Student;
 import tom.util.MD5Utils;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Service
 public class StudentService_Impl implements I_StudentService
 {
-    @Autowired
-    StudentRepository studentRepository;
+	@Autowired
+	StudentRepository studentRepository;
 
-    @Autowired
-    MongoTemplate mongoTemplate;
+	@Autowired
+	MongoTemplate mongoTemplate;
 
-    @Override
-    public Student checkIdentity(String username, String password)
-    {
-        return studentRepository.findByIdAndPassword(username, MD5Utils.stringToMD5(password));
-    }
+	@Override
+	public Student checkIdentity(String username, String password)
+	{
+		return studentRepository.findByIdAndPassword(username, MD5Utils.stringToMD5(password));
+	}
 
-    @Override
-    public boolean verifyEmail(String password, Student student)
-    {
-        if(student.getPassword().equals(password)) return true;
-        else return false;
-    }
+	@Override
+	public boolean verifyEmail(String password, Student student)
+	{
+		if(student.getPassword().equals(password)) return true;
+		else return false;
+	}
 
-    @Override
-    public Student addStudent(Student newStudent)
-    {
-        System.out.println("successful");
-        newStudent.setId();
-        newStudent.setUsername();
-        String CertId = newStudent.getPersonalInfo().getCertificate().getCertificateId();
-        String oriPassword = MD5Utils.stringToMD5(CertId.substring(CertId.length() - 6));
-        newStudent.setPassword(oriPassword);
-        return studentRepository.save(newStudent);
-    }
+	@Override
+	public Student addStudent(Student newStudent)
+	{
+		System.out.println("successful");
+		newStudent.setId();
+		newStudent.setUsername();
+		String CertId = newStudent.getPersonalInfo().getCertificate().getCertificateId();
+		String oriPassword = MD5Utils.stringToMD5(CertId.substring(CertId.length() - 6));
+		newStudent.setPassword(oriPassword);
+		return studentRepository.save(newStudent);
+	}
 
-    @Override
-    public void deleteStudent(String id)
-    {
-        System.out.println("successful");
-        studentRepository.deleteById(id);
-    }
+	@Override
+	public List<Student> getAllStudents()
+	{
+		return studentRepository.findAll();
+	}
+
+	@Override
+	public void deleteStudent(String id)
+	{
+		System.out.println("successful");
+		studentRepository.deleteById(id);
+	}
 
 
 }
