@@ -31,3 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+/后期待添加项目
+/Educator.xmind
+*.xmind
+/mvnw
+/mvnw.cmd

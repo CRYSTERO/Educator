@@ -54,6 +54,13 @@ public class ClassService_Impl implements I_ClassService
         return classRepository.save(newClass);
     }
 
+    //计算课程总分。后期可以增加实验成绩选项，教师也可自行选择不同的成绩算法。
+    @Override
+    public String getFinalGrade(String oriGrade, String perfGrade)
+    {
+        return String.valueOf(Integer.parseInt(oriGrade) * 0.7 + Integer.parseInt(perfGrade) * 0.3);
+    }
+
     @Override
     public void deleteClass(String id)
     {

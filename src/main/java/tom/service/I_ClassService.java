@@ -13,4 +13,5 @@ public interface I_ClassService
 
     void deleteAdminClass(String id);
 
+    String getFinalGrade(String oriGrade, String perfGrade);
 }

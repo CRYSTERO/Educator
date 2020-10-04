@@ -17,7 +17,7 @@ public enum CertificateClass
     {
         switch (s)
         {
-            case " PASSPORT" :
+            case "PASSPORT" :
             {
                 return PASSPORT;
             }
@@ -34,18 +34,5 @@ public enum CertificateClass
                 return  NATIONAL_ID_CARD;
             }
         }
-    }
-
-    public String getCertificateClass()
-    {
-        return certificateClass;
-    }
-
-    @Override
-    public String toString()
-    {
-        return "Certificate{" +
-                "certificateClass='" + certificateClass + '\'' +
-                '}';
     }
 }

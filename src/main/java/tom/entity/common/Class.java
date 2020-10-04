@@ -19,9 +19,10 @@ public class Class
     private String className;   //课程名称
     private Faculty teacher;    //教师
     private List<Student> students; //修学此课程的学生名单
-    private String oriGrade;
-    private String perfGrade;
-    private String fiGrade;
+    private String oriGrade;    //卷面成绩
+    private String perfGrade;   //平时成绩
+    private String fiGrade;     //最终成绩
+    //private boolean isExaminationClass;   //后期增加考试课考查课的分别
 
     public Class(){}
 
