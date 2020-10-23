@@ -2,8 +2,10 @@ package tom.controller.admin_controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import tom.DAO.AdminRepository;
 import tom.DAO.ClassRepository;
 import tom.DAO.SchoolRepository;
+import tom.entity.admin.Administrator;
 import tom.entity.common.AdminClass;
 import tom.entity.common.Class;
 import tom.entity.common.School;
@@ -25,6 +27,8 @@ public class AdminRestController
     ClassService_Impl classServiceImpl;
     @Autowired
     SchoolRepository schoolRepository;
+    @Autowired
+    AdminRepository adminRepository;
 
     @DeleteMapping("/del-stu/{id}")
     public void deleteStudent(@PathVariable String id)
@@ -32,12 +36,12 @@ public class AdminRestController
         studentServiceImpl.deleteStudent(id);
     }
 
-//    @PostMapping("/add-stu")
-//    public Student addStudent(@RequestBody Student student)
-//    {
-//        System.out.println(student);
-//        return studentServiceImpl.addStudent(student);
-//    }
+    @PostMapping("/add-stu")
+    public Student addStudent(@RequestBody Student student)
+    {
+        System.out.println(student);
+        return studentServiceImpl.addStudent(student);
+    }
     @PostMapping("/add-stf")
     public Faculty addFaculty(@RequestBody Faculty faculty)
     {
@@ -61,5 +65,11 @@ public class AdminRestController
     public void addSchool(@RequestBody School school)
     {
         schoolRepository.save(school);
+    }
+
+    @PostMapping("/addAdmin")
+    public void addAdmin(@RequestBody Administrator administrator)
+    {
+        adminRepository.save(administrator);
     }
 }

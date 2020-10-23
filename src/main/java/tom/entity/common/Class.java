@@ -19,9 +19,8 @@ public class Class
     private String className;   //课程名称
     private Faculty teacher;    //教师
     private List<Student> students; //修学此课程的学生名单
-    private String oriGrade;    //卷面成绩
-    private String perfGrade;   //平时成绩
-    private String fiGrade;     //最终成绩
+    private Grade grade;
+
     //private boolean isExaminationClass;   //后期增加考试课考查课的分别
 
     public Class(){}
@@ -66,33 +65,13 @@ public class Class
         this.students = students;
     }
 
-    public String getOriGrade()
+    public Grade getGrade()
     {
-        return oriGrade;
+        return grade;
     }
 
-    public void setOriGrade(String oriGrade)
+    public void setGrade(Grade grade)
     {
-        this.oriGrade = oriGrade;
-    }
-
-    public String getPerfGrade()
-    {
-        return perfGrade;
-    }
-
-    public void setPerfGrade(String perfGrade)
-    {
-        this.perfGrade = perfGrade;
-    }
-
-    public String getFiGrade()
-    {
-        return fiGrade;
-    }
-
-    public void setFiGrade(String fiGrade)
-    {
-        this.fiGrade = fiGrade;
+        this.grade = grade;
     }
 }

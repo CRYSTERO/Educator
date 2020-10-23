@@ -8,6 +8,7 @@ import tom.entity.common.Personal_Info;
 import tom.entity.common.User;
 
 import java.util.List;
+import java.util.Map;
 
 @Document(collection = "student")
 public class Student extends User
@@ -16,7 +17,7 @@ public class Student extends User
     private String id;
 
     private Educational_Info educationalInfo;
-    private List<Class> classes;
+    private Map<String, Class> classes;
     private List<Notification> notifications;
     private List<Examination> exams;
 
@@ -42,12 +43,12 @@ public class Student extends User
         this.educationalInfo = educationalInfo;
     }
 
-    public List<Class> getClasses()
+    public Map<String, Class> getClasses()
     {
         return classes;
     }
 
-    public void setClasses(List<Class> classes)
+    public void setClasses(Map<String, Class> classes)
     {
         this.classes = classes;
     }

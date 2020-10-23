@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/semantic/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="/asserts/css/myStyle.css">
+    <title>成绩上传</title>
+</head>
+<body>
+<div th:replace="~{common/commons :: navigation_stf}"></div>
+
+<div class="m-container-small m-padded-tb-massive">
+    <div class="ui container">
+        <table class="ui celled padded table">
+            <thead>
+            <tr>
+                <th class="single line">学号</th>
+                <th>姓名</th>
+                <th>行政班级</th>
+                <th>成绩是否已上传</th>
+                <th>平时成绩</th>
+                <th>卷面成绩</th>
+                <th>实验成绩</th>
+                <th>最终成绩</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="student : ${studentsList}">
+                <td th:text="${student.id}">1</td>
+                <td th:text="${student.getPersonalInfo().getFamilyName()+student.getPersonalInfo().getGivenName()}">XXX</td>
+                <td th:text="${student.getEducationalInfo().getAdminClass()}">XXX</td>
+                <td>
+                    <span>N/A</span>
+                </td>
+                <td th:text="${student.getClasses().get(classId).getGrade().getExtraGrade()}">N/A</td>
+                <td th:text="${student.getClasses().get(classId).getGrade().getExperGrade()}">N/A</td>
+                <td th:text="${student.getClasses().get(classId).getGrade().getExamGrade()}">N/A</td>
+                <td th:text="${student.getClasses().get(classId).getGrade().getFinalGrade()}">N/A</td>
+                <td>
+                    <a class="ui primary button" id="sub-btn" th:href="@{/faculty/setgrade/{id}(id=${student.getId()})}">上传成绩</a>
+                    <a class="ui red button" href="#">移除学生</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="/asserts/js/jquery-3.4.1.min.js"></script>
+<script src="/semantic/semantic.min.js"></script>
+<script>
+
+</script>
+</body>
+</html>

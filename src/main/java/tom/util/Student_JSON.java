@@ -14,9 +14,7 @@ import tom.entity.student.Student;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class Student_JSON
 {
@@ -27,23 +25,23 @@ public class Student_JSON
 
         //Personal Info
         {
-            personalInfo.setFamilyName("Sun");
-            personalInfo.setGivenName("Wei");
+            personalInfo.setFamilyName("Natalie");
+            personalInfo.setGivenName("Kiff");
             personalInfo.setGender(Gender.FEMALE);
-            personalInfo.setAge(19);
+            personalInfo.setAge(21);
             Certificate certificate = new Certificate();
             {
-                certificate.setCertificateClass(CertificateClass.NATIONAL_ID_CARD);
-                certificate.setCertificateId("1524887956482");
+                certificate.setCertificateClass(CertificateClass.PASSPORT);
+                certificate.setCertificateId("52XC21EC02D4X112FD5");
             }
             personalInfo.setCertificate(certificate);
-            personalInfo.setBirthPlace("Fu Yang City, An Hui Province");
+            personalInfo.setBirthPlace("Springfield, Virginia");
             personalInfo.setPhoto("https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1946079738,1531544959&fm=26&gp=0.jpg");
         }
 
         //Educational Info
         {
-            educationalInfo.setId("080218056");
+            educationalInfo.setId("080218099");
             educationalInfo.setAdminClass("EE1802");
             SimpleDateFormat ft = new SimpleDateFormat ("yyyy-MM-dd");
                 Date date1;
@@ -53,12 +51,12 @@ public class Student_JSON
             educationalInfo.setEnrollDate(date1);
             educationalInfo.setGraduateDate(date2);
             educationalInfo.setSchool("EE");
-            educationalInfo.setRemark("Nicce student!!");
-            educationalInfo.setEmail("sunwei@qq.com");
-            educationalInfo.setTel("13955641221");
+            educationalInfo.setRemark("Exchange student!");
+            educationalInfo.setEmail("nataliekiff@outlook.com");
+            educationalInfo.setTel("5623379828");
         }
 
-        List<Class> classes = new ArrayList<>();
+        Map<String, Class> classes = new HashMap<>();
         List<Notification> notifications = new ArrayList<>();
         List<Examination> exams = new ArrayList<>();
 

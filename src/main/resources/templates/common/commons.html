@@ -56,16 +56,28 @@
             <div class="ui inverted stackable menu">
                 <div class="m-text-middle center aligned header item" style="color: orangered !important;" th:href="@{/student}">教职工系统</div>
                 <a class="item" href="#">个人信息</a>
-                <a class="item" href="#">考试成绩上传</a>
+                <a class="item" th:href="@{/faculty/allclasses}">课程管理</a>
                 <a class="item" href="#">课程表</a>
 
                 <div class="ui right dropdown item">
-                    <img src="/asserts/image/avatar.jpg" class="ui avatar image">
-                    <span>李旭东</span>
+                    <img th:src="@{${session.faculty.getPersonalInfo().getPhoto()}}" class="ui avatar image">
+                    <span th:text="${session.faculty.getPersonalInfo().getFamilyName()+session.faculty.getPersonalInfo().getGivenName()}">李旭东</span>
                 </div>
             </div>
         </div>
     </nav>
+
+    <!---->
+    <div class="ui borderless main menu" th:fragment="navigation_admin">
+         <div class="ui text container">
+             <div class="header item">管理员后台面板</div>
+             <div class="ui right floated item">
+                 <span th:text="${session.admin.getName()}" class="header">XXX</span>
+                 <a th:href="@{/logout}"><i class="sign-out icon"></i>登出</a>
+             </div>
+         </div>
+    </div>
+
     <!--页脚！-->
     <footer class="ui inverted vertical segment m-padded-tb-massive" th:fragment="footer">
         <div class="ui center aligned container">
@@ -77,7 +89,7 @@
                     <p>Looong Network出品。本网站仅供本校师生进行教务管理使用，请勿用作商业用途！安庆师范大学保留一切解释权。皖公安网备2020年8月。</p>
                 </div>
                 <div class="center aligned row">
-                    <div class="three wide column"> <a href="#">联系管理员</a> </div>
+                    <div class="three wide column"> <a href="#">关于开发者</a> </div>
                     <div class="three wide column"> <a href="#">隐私政策</a> </div>
                     <div class="three wide column"> <a href="#">留言板</a> </div>
                 </div>

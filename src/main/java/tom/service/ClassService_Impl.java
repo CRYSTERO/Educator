@@ -2,6 +2,8 @@ package tom.service;
 
 import com.mongodb.client.MongoClients;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.SimpleMongoClientDatabaseFactory;
@@ -47,7 +49,7 @@ public class ClassService_Impl implements I_ClassService
             Student classmate = mongoTemplate.findOne(squery, Student.class);
             if(classmate != null)
             {
-                classmate.getClasses().add(newClass);
+                classmate.getClasses().put(newClass.getId(), newClass);
                 mongoTemplate.save(classmate);
             }
         }
@@ -59,6 +61,12 @@ public class ClassService_Impl implements I_ClassService
     public String getFinalGrade(String oriGrade, String perfGrade)
     {
         return String.valueOf(Integer.parseInt(oriGrade) * 0.7 + Integer.parseInt(perfGrade) * 0.3);
+    }
+
+    @Override
+    public String getFinalGrade(String oriGrade, String perfGrade, String experGrade)
+    {
+        return String.valueOf(Integer.parseInt(oriGrade) * 0.6 + Integer.parseInt(perfGrade) * 0.2 + Integer.parseInt(experGrade) * 0.2) ;
     }
 
     @Override
@@ -79,4 +87,9 @@ public class ClassService_Impl implements I_ClassService
 
     }
 
+    @Override
+    public List<Student> findAllStudentsInTheClass(String classId)
+    {
+        return classRepository.findClassById(classId).getStudents();
+    }
 }

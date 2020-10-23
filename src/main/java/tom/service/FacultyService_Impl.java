@@ -5,6 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import tom.DAO.FacultyRepository;
+import tom.entity.common.Class;
 import tom.entity.faculty.Faculty;
 import tom.util.MD5Utils;
 
@@ -38,4 +39,5 @@ public class FacultyService_Impl implements I_FacultyService
     {
         return facultyRepository.findByIdAndPassword(id, MD5Utils.stringToMD5(password));
     }
+
 }

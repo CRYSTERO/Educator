@@ -34,13 +34,13 @@ public class AdminController
     {
         return "admin/add-stu";
     }
-    @PostMapping("/add-stu")
-    public String addStudent(Student student)
-    {
-        System.out.println(student);
-        studentService.addStudent(student);
-        return "/index";
-    }
+//    @PostMapping("/add-stu")
+//    public String addStudent(Student student)
+//    {
+//        System.out.println(student);
+//        studentService.addStudent(student);
+//        return "/index";
+//    }
 
     @InitBinder
     public void myBinder(WebDataBinder binder)

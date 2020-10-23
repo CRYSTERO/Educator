@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/semantic/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="/asserts/css/myStyle.css">
+    <style type="text/css">
+        body {
+            background-color: #DADADA;
+        }
+        body > .grid {
+            height: 100%;
+        }
+        .image {
+            margin-top: -100px;
+        }
+        .column {
+            max-width: 450px;
+        }
+    </style>
+
+    <title>成绩上传</title>
+</head>
+<body>
+
+
+<div class="ui middle aligned center aligned grid">
+    <div class="column">
+        <div class="ui segment">
+            <div class="ui container">
+                <h1 class="ui orange header">成绩上传</h1>
+                <table class="ui inverted table">
+                    <thead>
+                    <tr>
+                        <th class="left aligned">学号</th>
+                        <th class="left aligned">姓名</th>
+                        <th class="left aligned">行政班级</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="left aligned">080214036</td>
+                        <td class="left aligned">李子明</td>
+                        <td class="left aligned">2018级物理学二班</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="ui divider"></div>
+                <form class="ui large form" name="form" method="post">
+                    <div class="ui checkbox">
+                        <input type="checkbox" tabindex="0">
+                        <label>没有实验部分</label>
+                    </div>
+                    <br><br><br>
+                    <div class="three fields">
+                        <div class="field">
+                            <label>平时成绩</label>
+                            <div class="ui right labeled input">
+                                <input type="text" id="_01">
+                                <div class="ui right corner label">30%</div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>实验成绩成绩</label>
+                            <div class="ui right labeled input">
+                                <input type="text" id="_02">
+                                <div class="ui right corner label">30%</div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>卷面成绩</label>
+                            <div class="ui right labeled input">
+                                <input type="text" id="_03">
+                                <div class="ui right corner label">40%</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="field">
+                        <label>总成绩</label>
+                        <input type="text" id="_04" readonly>
+                    </div>
+                    <br><br>
+                    <div id="button" class="ui large orange button" onclick="sendAJAX()">上传</div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="/asserts/js/jquery-3.4.1.min.js"></script>
+<script src="/semantic/semantic.min.js"></script>
+<script src="/asserts/js/ajax.js"></script>
+<!--<script type="javascript">-->
+<!--    function sendAJAX()-->
+<!--    {-->
+<!--        var sc1 = document.getElementById("_01");-->
+<!--        var sc2 = document.getElementById("_02");-->
+<!--        var sc3 = document.getElementById("_03");-->
+<!--        if(sc1.value !== "" && sc2.value !== "" && sc3.value !== "")-->
+<!--        {-->
+<!--            var data = sc1+" "+sc2+" "+sc3;-->
+<!--            $.ajax(-->
+<!--                {-->
+<!--                    url: "/faculty/calculateGrade",-->
+<!--                    data: jQuery.parseJSON(data),-->
+<!--                    type: "POST",-->
+<!--                    dataType: "json",-->
+<!--                    success: function(data)-->
+<!--                    {-->
+<!--                        //显示出总成绩-->
+<!--                        document.getElementById("_04").value = data;-->
+
+<!--                    }-->
+<!--                }-->
+<!--            )-->
+
+<!--        }-->
+<!--    }-->
+<!--</script>-->
+</body>
+</html>

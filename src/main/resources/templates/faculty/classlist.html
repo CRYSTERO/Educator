@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/semantic/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="/asserts/css/myStyle.css">
+    <title>教授课程管理</title>
+</head>
+<body>
+<div th:replace="~{common/commons :: navigation_stf}"></div>
+
+<div class="m-container-small m-padded-tb-massive">
+    <div class="ui container">
+        <table class="ui celled padded table">
+            <thead>
+                <tr>
+                    <th class="single line">课程代码</th>
+                    <th>课程名称</th>
+                    <th>考查方式</th>
+                    <th>学生人数</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="class : ${faculty.getEmploymentInfo().getTeachingClasses()}">
+                    <td th:text="${class.id}">1</td>
+                    <td th:text="${class.className}">XXX</td>
+                    <td>N/A</td>
+                    <td th:text="${class.students.size()}"></td>
+                    <td>
+                                <a class="ui mini blue button" href="#">评教</a>
+                                <a class="ui mini green button" th:href="@{/faculty/uploadgrade/{id}(id=${class.getId()})}">成绩上传</a>
+                                <a class="ui mini teal button" href="#">课程报告</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="/asserts/js/jquery-3.4.1.min.js"></script>
+<script src="/semantic/semantic.min.js"></script>
+</body>
+</html>

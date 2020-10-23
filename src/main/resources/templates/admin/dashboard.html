@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/asserts/image/favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="/semantic/semantic.min.css">
+    <title>管理员后台</title>
+</head>
+<body>
+<div th:replace="~{common/commons :: navigation_admin}"></div>
+
+<div class="ui middle aligned center aligned two column grid">
+
+        <div class="column">
+            <a class="ui large orange button" href="#">学生管理</a>
+        </div>
+        <div class="column">
+            <a class="ui large orange button" href="#">教职工管理</a>
+        </div>
+        <div class="column">
+            <a class="ui large orange button" href="#">课程管理</a>
+        </div>
+        <div class="column">
+            <a class="ui large orange button" href="#">网站运维</a>
+        </div>
+
+</div>
+
+<div th:replace="~{common/commons :: footer}"></div>
+<script src="/asserts/js/jquery-3.4.1.min.js"></script>
+<script src="/semantic/semantic.min.js"></script>
+</body>
+</html>

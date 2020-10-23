@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/semantic/semantic.min.css">
+    <title>考试成绩</title>
+</head>
+<body>
+<!--<div th:replace="~{common/commons :: navigation_stu}"></div>-->
+
+<div class="m-container-small m-padded-tb-big">
+        <div class="ui segment">
+                <div class="ui container">
+                    <div class="ui middle aligned center aligned grid">
+                        <div class="row">
+                            <div class="four wide column"></div>
+                            <div class="eight wide column">
+                                <div class="ui three item menu">
+                                    <a class="active item">所有成绩</a>
+                                    <a class="item">按学期查询</a>
+                                    <a class="item">按类别查询</a>
+                                </div>
+                            </div>
+                            <div class="four wide column"></div>
+                        </div>
+                    </div>
+                    <br>
+                    <table class="ui celled table">
+                        <thead>
+                        <tr>
+                            <th>课程代号</th>
+                            <th>课程名称</th>
+                            <th>教师</th>
+                            <th>考查方式</th>
+                            <th>课程性质</th>
+                            <th>卷面成绩</th>
+                            <th>平时成绩</th>
+                            <th>实验成绩</th>
+                            <th>最终成绩</th>
+                            <th>补考记录</th>
+                            <th>备注</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="left aligned">000001</td>
+                            <td class="left aligned">通信原理</td>
+                            <td class="left aligned">刘全金</td>
+                            <td class="left aligned">考试</td>
+                            <td class="left aligned">必修课</td>
+                            <td class="left aligned">82</td>
+                            <td class="left aligned">85</td>
+                            <td class="left aligned">81</td>
+                            <td class="left aligned">82</td>
+                            <td class="left aligned">N/A</td>
+                            <td class="left aligned">N/A</td>
+                        </tr>
+                        <tr>
+                            <td class="left aligned">000002</td>
+                            <td class="left aligned">C++程序设计</td>
+                            <td class="left aligned">吴勇</td>
+                            <td class="left aligned">考试</td>
+                            <td class="left aligned">选修课</td>
+                            <td class="left aligned">95</td>
+                            <td class="left aligned">90</td>
+                            <td class="left aligned">90</td>
+                            <td class="left aligned">93</td>
+                            <td class="left aligned">N/A</td>
+                            <td class="left aligned">N/A</td>
+                        </tr>
+                        <tr>
+                            <td class="left aligned">000004</td>
+                            <td class="left aligned">操作系统</td>
+                            <td class="left aligned">扬乐</td>
+                            <td class="left aligned">考试</td>
+                            <td class="left aligned">必修课</td>
+                            <td class="left aligned">91</td>
+                            <td class="left aligned">85</td>
+                            <td class="left aligned">82</td>
+                            <td class="left aligned">86</td>
+                            <td class="left aligned">N/A</td>
+                            <td class="left aligned">N/A</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+</div>
+
+<div th:replace="~{common/commons :: footer}"></div>
+<script src="/asserts/js/jquery-3.4.1.min.js"></script>
+<script src="/semantic/semantic.min.js"></script>
+</body>
+</html>
