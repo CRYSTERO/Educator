@@ -26,21 +26,24 @@
 <div class="ui middle aligned center aligned grid">
     <div class="column">
         <div class="ui segment">
+            <div class="none" id="loader">
+                <div class="ui text loader">正在计算成绩，请稍后...</div>
+            </div>
             <div class="ui container">
                 <h1 class="ui orange header">成绩上传</h1>
                 <table class="ui inverted table">
                     <thead>
                     <tr>
-                        <th class="left aligned">学号</th>
-                        <th class="left aligned">姓名</th>
-                        <th class="left aligned">行政班级</th>
+                        <th class="center aligned">学号</th>
+                        <th class="center aligned">姓名</th>
+                        <th class="center aligned">行政班级</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <td class="left aligned">080214036</td>
-                        <td class="left aligned">李子明</td>
-                        <td class="left aligned">2018级物理学二班</td>
+                        <td class="center aligned">080214036</td>
+                        <td class="center aligned">李子明</td>
+                        <td class="center aligned">2018级物理学二班</td>
                     </tr>
                     </tbody>
                 </table>
@@ -80,43 +83,54 @@
                         <input type="text" id="_04" readonly>
                     </div>
                     <br><br>
-                    <div id="button" class="ui large orange button" onclick="sendAJAX()">上传</div>
+                    <div id="button1" class="ui large orange button" onclick="sendAJAX()">计算总分</div>
+                    <a id="button2" class="ui large green button" onclick="modal()">上传成绩</a>
                 </form>
             </div>
         </div>
+        <div class="ui tiny modal">
+            <div class="header">确认上传</div>
 
+            <div class="content">
+                <div class="ui floating orange message">成绩一旦上传后无法更改，请确认!</div>
+                <div>学号：<span>080214036</span>&nbsp;&nbsp;姓名: <span>李子明</span>的成绩如下：</div>
+                <table class="ui center aligned table">
+                    <thead>
+                        <tr>
+                            <th class="center aligned">平时成绩</th>
+                            <th class="center aligned">平时成绩</th>
+                            <th class="center aligned">平时成绩</th>
+                            <th class="center aligned">总成绩</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th class="center aligned" id="_05">1</th>
+                        <th class="center aligned" id="_06">1</th>
+                        <th class="center aligned" id="_07">1</th>
+                        <th class="center aligned" id="_08">1</th>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="actions">
+                <div class="ui black deny button">
+                    取消
+                </div>
+                <a class="ui positive right labeled icon button"  href="#">
+                    上传
+                    <i class="checkmark icon"></i>
+                </a>
+            </div>
+        </div>
     </div>
 </div>
 
 <script src="/asserts/js/jquery-3.4.1.min.js"></script>
 <script src="/semantic/semantic.min.js"></script>
-<script src="/asserts/js/ajax.js"></script>
-<!--<script type="javascript">-->
-<!--    function sendAJAX()-->
-<!--    {-->
-<!--        var sc1 = document.getElementById("_01");-->
-<!--        var sc2 = document.getElementById("_02");-->
-<!--        var sc3 = document.getElementById("_03");-->
-<!--        if(sc1.value !== "" && sc2.value !== "" && sc3.value !== "")-->
-<!--        {-->
-<!--            var data = sc1+" "+sc2+" "+sc3;-->
-<!--            $.ajax(-->
-<!--                {-->
-<!--                    url: "/faculty/calculateGrade",-->
-<!--                    data: jQuery.parseJSON(data),-->
-<!--                    type: "POST",-->
-<!--                    dataType: "json",-->
-<!--                    success: function(data)-->
-<!--                    {-->
-<!--                        //显示出总成绩-->
-<!--                        document.getElementById("_04").value = data;-->
-
-<!--                    }-->
-<!--                }-->
-<!--            )-->
-
-<!--        }-->
-<!--    }-->
-<!--</script>-->
+<script src="/asserts/js/setgrade.js"></script>
+<script>
+    document.getElementById("button2").style.display = "none";
+</script>
 </body>
 </html>

@@ -59,8 +59,8 @@ class FacultyRestController
     public String calculateGrade(@RequestBody String str)
     {
         String[] grades = str.substring(0, str.length()-1).split("\\+");
-        for(String grade : grades) System.out.println(grade);
         return classService.getFinalGrade(grades[0], grades[1], grades[2]);
+
 //        String[] grades = str.split(" ");
 //        return classService.getFinalGrade(grades[0], grades[1], grades[2]);
     }
