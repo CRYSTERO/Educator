@@ -38,6 +38,14 @@ public class StudentController
         return "student/info";
     }
 
+    //前往课程表
+    @GetMapping("/classtable")
+    public String calssTable(HttpSession session)
+    {
+        session.getAttribute("student");
+        return "student/classtable";
+    }
+
     @GetMapping("/info-edit")
     public String editInfo()
     {

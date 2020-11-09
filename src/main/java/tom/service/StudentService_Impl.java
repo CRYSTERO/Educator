@@ -2,8 +2,11 @@ package tom.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 import tom.DAO.StudentRepository;
+import tom.entity.common.Grade;
 import tom.entity.student.Student;
 import tom.util.MD5Utils;
 
@@ -18,6 +21,14 @@ public class StudentService_Impl implements I_StudentService
 
 	@Autowired
 	MongoTemplate mongoTemplate;
+
+	@Override
+	public Student findOneStudentById(String studentId)
+	{
+		Query query = new Query();
+		query.addCriteria(Criteria.where("_id").is(studentId));
+		return mongoTemplate.findOne(query, Student.class);
+	}
 
 	@Override
 	public Student checkIdentity(String username, String password)
@@ -53,9 +64,13 @@ public class StudentService_Impl implements I_StudentService
 	@Override
 	public void deleteStudent(String id)
 	{
-		System.out.println("successful");
 		studentRepository.deleteById(id);
 	}
 
-
+	@Override
+	public void setFinalGrade(Grade grade, String classId, String studentId)
+	{
+		Student student = findOneStudentById(studentId);
+		student.getClasses().get(classId).setGrade(grade);
+	}
 }

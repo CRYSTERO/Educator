@@ -36,3 +36,5 @@ build/
 *.xmind
 /mvnw
 /mvnw.cmd
+/HELP.md
+/Educator.iml

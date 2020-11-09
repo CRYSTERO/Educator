@@ -69,6 +69,8 @@ public class ClassService_Impl implements I_ClassService
         return String.valueOf(Integer.parseInt(oriGrade) * 0.6 + Integer.parseInt(perfGrade) * 0.2 + Integer.parseInt(experGrade) * 0.2) ;
     }
 
+
+
     @Override
     public void deleteClass(String id)
     {

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/semantic/semantic.min.css">
     <link rel="stylesheet" type="text/css" href="/asserts/css/myStyle.css">
-    <title>成绩上传</title>
+    <title>学生列表</title>
 </head>
 <body>
 <div th:replace="~{common/commons :: navigation_stf}"></div>
@@ -38,7 +38,7 @@
                 <td th:text="${student.getClasses().get(classId).getGrade().getExamGrade()}">N/A</td>
                 <td th:text="${student.getClasses().get(classId).getGrade().getFinalGrade()}">N/A</td>
                 <td>
-                    <a class="ui primary button" id="sub-btn" th:href="@{/faculty/setgrade/{id}(id=${student.getId()})}">上传成绩</a>
+                    <a class="ui primary button" id="sub-btn" th:href="@{/faculty/uploadgrade/{classId}/{studentId} (classId=${classId} ,studentId=${student.getId()})}">上传成绩</a>
                     <a class="ui red button" href="#">移除学生</a>
                 </td>
             </tr>

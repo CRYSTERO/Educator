@@ -41,14 +41,14 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <td class="center aligned">080214036</td>
-                        <td class="center aligned">李子明</td>
-                        <td class="center aligned">2018级物理学二班</td>
+                        <td class="center aligned" th:text="${student.id}">080214036</td>
+                        <td class="center aligned" th:text="${student.getPersonalInfo().getFamilyName()+student.getPersonalInfo().getGivenName()}">李子明</td>
+                        <td class="center aligned" th:text="${student.getEducationalInfo().getAdminClass()}">2018级物理学二班</td>
                     </tr>
                     </tbody>
                 </table>
                 <div class="ui divider"></div>
-                <form class="ui large form" name="form" method="post">
+                <form class="ui large form" name="form" method="post" th:action="@{/faculty/setgrade/{classID}/{studentID} (studentID= ${student.id}, classID= ${classId})}">
                     <div class="ui checkbox">
                         <input type="checkbox" tabindex="0">
                         <label>没有实验部分</label>
@@ -58,21 +58,21 @@
                         <div class="field">
                             <label>平时成绩</label>
                             <div class="ui right labeled input">
-                                <input type="text" id="_01">
+                                <input type="text" id="_01" name="extraGrade">
                                 <div class="ui right corner label">30%</div>
                             </div>
                         </div>
                         <div class="field">
                             <label>实验成绩成绩</label>
                             <div class="ui right labeled input">
-                                <input type="text" id="_02">
+                                <input type="text" id="_02" name="experGrade">
                                 <div class="ui right corner label">30%</div>
                             </div>
                         </div>
                         <div class="field">
                             <label>卷面成绩</label>
                             <div class="ui right labeled input">
-                                <input type="text" id="_03">
+                                <input type="text" id="_03" name="examGrade">
                                 <div class="ui right corner label">40%</div>
                             </div>
                         </div>
@@ -80,7 +80,7 @@
                     </div>
                     <div class="field">
                         <label>总成绩</label>
-                        <input type="text" id="_04" readonly>
+                        <input type="text" id="_04" name="finalGrade" readonly>
                     </div>
                     <br><br>
                     <div id="button1" class="ui large orange button" onclick="sendAJAX()">计算总分</div>
@@ -93,7 +93,7 @@
 
             <div class="content">
                 <div class="ui floating orange message">成绩一旦上传后无法更改，请确认!</div>
-                <div>学号：<span>080214036</span>&nbsp;&nbsp;姓名: <span>李子明</span>的成绩如下：</div>
+                <div>学号：<span th:text="${student.id}">080214036</span>&nbsp;&nbsp;姓名: <span th:text="${student.getPersonalInfo().getFamilyName()+student.getPersonalInfo().getGivenName()}">李子明</span>的成绩如下：</div>
                 <table class="ui center aligned table">
                     <thead>
                         <tr>
@@ -117,7 +117,7 @@
                 <div class="ui black deny button">
                     取消
                 </div>
-                <a class="ui positive right labeled icon button"  href="#">
+                <a class="ui positive right labeled icon button" id="submit-btn">
                     上传
                     <i class="checkmark icon"></i>
                 </a>
@@ -131,6 +131,11 @@
 <script src="/asserts/js/setgrade.js"></script>
 <script>
     document.getElementById("button2").style.display = "none";
+</script>
+<script>
+    $('#submit-btn').click(function () {
+        $('#form').submit();
+    });
 </script>
 </body>
 </html>

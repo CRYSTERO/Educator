@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/semantic/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="/asserts/css/myStyle.css">
+    <style type="text/css">
+        .tg  {border-collapse:collapse;border-color:#ccc;border-spacing:0;}
+        .tg td{background-color:#fff;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+            font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg th{background-color:#f0f0f0;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+            font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg .tg-baqh{text-align:center;vertical-align:top}
+        .tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+    </style>
+    <title>课程表</title>
+</head>
+<body>
+<div th:replace="~{common/commons :: navigation_stu}"></div>
+
+<div class="m-container-small m-padded-tb-big">
+    <div class="ui center aligned container">
+            <div class="ui segment">
+                <div class="ui middle aligned center aligned three column divided grid">
+                    <div class="middle aligned center aligned row">
+                        <div class="column">
+                            <div class="field">
+                                <div class="ui selection dropdown">
+                                    <input type="hidden" name="level">
+                                    <i class="dropdown icon"></i>
+                                    <div class="default text">请选择年级</div>
+                                    <div class="menu">
+                                        <div class="item" data-value="1">大一</div>
+                                        <div class="item" data-value="0">大二</div>
+                                        <div class="item" data-value="1">大三</div>
+                                        <div class="item" data-value="0">大四</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="column">
+                            <div class="field">
+                                <div class="ui selection dropdown">
+                                    <input type="hidden" name="semester">
+                                    <i class="dropdown icon"></i>
+                                    <div class="default text">请选择学期</div>
+                                    <div class="menu">
+                                        <div class="item" data-value="1">上学期</div>
+                                        <div class="item" data-value="0">下学期</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="column">
+                            <div class="field">
+                                <button class="ui positive basic button" id="btn">查找</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui placeholder segment">
+<!--                <img class="ui fluid image" src="/asserts/image/classtable.JPG">-->
+                <table class="tg">
+                    <thead>
+                    <tr>
+                        <th class="tg-c3ow"></th>
+                        <th class="tg-c3ow">星期一</th>
+                        <th class="tg-c3ow">星期二</th>
+                        <th class="tg-c3ow">星期三</th>
+                        <th class="tg-c3ow">星期四</th>
+                        <th class="tg-baqh">星期五</th>
+                        <th class="tg-baqh">星期六</th>
+                        <th class="tg-baqh">星期天</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="tg-c3ow">1</td>
+                        <td class="tg-c3ow" rowspan="3">单片机</td>
+                        <td class="tg-c3ow" rowspan="2">EDA</td>
+                        <td class="tg-c3ow"></td>
+                        <td class="tg-c3ow" rowspan="3">电磁场与电磁波</td>
+                        <td class="tg-baqh"></td>
+                        <td class="tg-baqh"></td>
+                        <td class="tg-baqh"></td>
+                    </tr>
+                    <tr>
+                        <td class="tg-c3ow">2</td>
+                        <td class="tg-c3ow"></td>
+                        <td class="tg-baqh"></td>
+                        <td class="tg-baqh"></td>
+                        <td class="tg-baqh"></td>
+                    </tr>
+                    <tr>
+                        <td class="tg-c3ow">3</td>
+                        <td class="tg-c3ow" rowspan="2">传感器原理</td>
+                        <td class="tg-c3ow" rowspan="2">创业基础</td>
+                        <td class="tg-baqh"></td>
+                        <td class="tg-baqh"></td>
+                        <td class="tg-baqh"></td>
+                    </tr>
+                    <tr>
+                        <td class="tg-baqh">4</td>
+                        <td class="tg-baqh"></td>
+                        <td class="tg-baqh"></td>
+                        <td class="tg-baqh"></td>
+                        <td class="tg-baqh"></td>
+                        <td class="tg-baqh"></td>
+                    </tr>
+                    <tr>
+                        <td class="tg-baqh">5</td>
+                        <td class="tg-baqh"></td>
+                        <td class="tg-baqh"></td>
+                        <td class="tg-baqh"></td>
+                        <td class="tg-baqh" rowspan="3">通信原理</td>
+                        <td class="tg-baqh" rowspan="3">数字信号处理</td>
+                        <td class="tg-baqh"></td>
+                        <td class="tg-baqh"></td>
+                    </tr>
+                    <tr>
+                        <td class="tg-baqh">6</td>
+                        <td class="tg-baqh"></td>
+                        <td class="tg-baqh"></td>
+                        <td class="tg-baqh"></td>
+                        <td class="tg-baqh"></td>
+                        <td class="tg-baqh"></td>
+                    </tr>
+                    <tr>
+                        <td class="tg-baqh">7</td>
+                        <td class="tg-baqh"></td>
+                        <td class="tg-baqh"></td>
+                        <td class="tg-baqh"></td>
+                        <td class="tg-baqh"></td>
+                        <td class="tg-baqh"></td>
+                    </tr>
+                    <tr>
+                        <td class="tg-baqh">8</td>
+                        <td class="tg-baqh" rowspan="3">单片机实验</td>
+                        <td class="tg-baqh" rowspan="3">传感器实验</td>
+                        <td class="tg-baqh"></td>
+                        <td class="tg-baqh"></td>
+                        <td class="tg-baqh" rowspan="3">通信原理实验</td>
+                        <td class="tg-baqh"></td>
+                        <td class="tg-baqh"></td>
+                    </tr>
+                    <tr>
+                        <td class="tg-baqh">9</td>
+                        <td class="tg-baqh"></td>
+                        <td class="tg-baqh"></td>
+                        <td class="tg-baqh"></td>
+                        <td class="tg-baqh"></td>
+                    </tr>
+                    <tr>
+                        <td class="tg-baqh">10</td>
+                        <td class="tg-baqh"></td>
+                        <td class="tg-baqh"></td>
+                        <td class="tg-baqh"></td>
+                        <td class="tg-baqh"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+</div>
+
+<div th:replace="~{common/commons :: footer}"></div>
+<script src="/asserts/js/jquery-3.4.1.min.js"></script>
+<script src="/semantic/semantic.min.js"></script>
+<script>
+    $('.ui.dropdown').dropdown(
+        {on : 'click'}
+    );
+</script>
+</body>
+</html>

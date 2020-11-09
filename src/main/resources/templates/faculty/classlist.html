@@ -29,7 +29,7 @@
                     <td th:text="${class.students.size()}"></td>
                     <td>
                                 <a class="ui mini blue button" href="#">评教</a>
-                                <a class="ui mini green button" th:href="@{/faculty/uploadgrade/{id}(id=${class.getId()})}">成绩上传</a>
+                                <a class="ui mini green button" th:href="@{/faculty/uploadgrade/{classId}(classId=${class.getId()})}">成绩上传</a>
                                 <a class="ui mini teal button" href="#">课程报告</a>
                     </td>
                 </tr>
